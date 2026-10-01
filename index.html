@@ -22,20 +22,20 @@
             sans: ['Plus Jakarta Sans', 'sans-serif'],
           },
           colors: {
-            emerald: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
-              900: '#064e3b',
+            saffron: {
+              50: '#fff8f0',
+              100: '#feebd4',
+              400: '#fb923c',
+              500: '#f97316', // Primary Saffron
+              600: '#ea580c',
+              700: '#c2410c',
             },
-            teal: {
-              400: '#2dd4bf',
-              500: '#14b8a6',
-              600: '#0d9488',
-              700: '#0f766e',
+            lightblue: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              500: '#0ea5e9',
+              600: '#0284c7',
             }
           }
         }
@@ -45,15 +45,12 @@
 
   <style>
     .glass-nav {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
-    .gradient-hero {
-      background: radial-gradient(circle at 10% 20%, rgb(6, 78, 59) 0%, rgb(15, 23, 42) 90.1%);
-    }
     .modal-backdrop {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(6px);
     }
     .animate-fade-in {
@@ -65,7 +62,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+<body class="bg-white text-slate-800 font-sans antialiased selection:bg-saffron-500 selection:text-white">
 
   <!-- NAVIGATION BAR -->
   <nav class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-slate-200/80 transition-all duration-300">
@@ -73,23 +70,23 @@
       <div class="flex items-center justify-between h-20">
         <!-- Logo / Brand -->
         <a href="#" class="flex items-center space-x-3 group">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-saffron-500 to-saffron-400 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
             R
           </div>
           <div>
             <span class="font-extrabold text-lg text-slate-900 tracking-tight block leading-none">RA2M-SD-2026</span>
-            <span class="text-xs font-semibold text-emerald-600 tracking-wider uppercase">4–6 November 2026</span>
+            <span class="text-xs font-semibold text-saffron-600 tracking-wider uppercase">4–6 November 2026</span>
           </div>
         </a>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
-          <a href="#about" class="hover:text-emerald-600 transition-colors">About</a>
-          <a href="#dates" class="hover:text-emerald-600 transition-colors">Important Dates</a>
-          <a href="#speakers" class="hover:text-emerald-600 transition-colors">Speakers</a>
-          <a href="#tracks" class="hover:text-emerald-600 transition-colors">Tracks</a>
-          <a href="#schedule" class="hover:text-emerald-600 transition-colors">Schedule</a>
-          <a href="#abstract" class="px-5 py-2.5 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-all shadow-md hover:shadow-emerald-600/20">Submit Abstract</a>
+          <a href="#about" class="hover:text-saffron-600 transition-colors">About</a>
+          <a href="#dates" class="hover:text-saffron-600 transition-colors">Important Dates</a>
+          <a href="#speakers" class="hover:text-saffron-600 transition-colors">Speakers</a>
+          <a href="#tracks" class="hover:text-saffron-600 transition-colors">Tracks</a>
+          <a href="#schedule" class="hover:text-saffron-600 transition-colors">Schedule</a>
+          <a href="#abstract" class="px-5 py-2.5 bg-saffron-500 text-white rounded-full hover:bg-saffron-600 transition-all shadow-md hover:shadow-saffron-500/20">Submit Abstract</a>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -101,34 +98,34 @@
 
     <!-- Mobile Menu Dropdown -->
     <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-semibold text-slate-700">
-      <a href="#about" onclick="toggleMobileMenu()" class="block hover:text-emerald-600">About</a>
-      <a href="#dates" onclick="toggleMobileMenu()" class="block hover:text-emerald-600">Important Dates</a>
-      <a href="#speakers" onclick="toggleMobileMenu()" class="block hover:text-emerald-600">Speakers</a>
-      <a href="#tracks" onclick="toggleMobileMenu()" class="block hover:text-emerald-600">Tracks</a>
-      <a href="#schedule" onclick="toggleMobileMenu()" class="block hover:text-emerald-600">Schedule</a>
-      <a href="#abstract" onclick="toggleMobileMenu()" class="block w-full text-center py-2.5 bg-emerald-600 text-white rounded-xl">Submit Abstract</a>
+      <a href="#about" onclick="toggleMobileMenu()" class="block hover:text-saffron-600">About</a>
+      <a href="#dates" onclick="toggleMobileMenu()" class="block hover:text-saffron-600">Important Dates</a>
+      <a href="#speakers" onclick="toggleMobileMenu()" class="block hover:text-saffron-600">Speakers</a>
+      <a href="#tracks" onclick="toggleMobileMenu()" class="block hover:text-saffron-600">Tracks</a>
+      <a href="#schedule" onclick="toggleMobileMenu()" class="block hover:text-saffron-600">Schedule</a>
+      <a href="#abstract" onclick="toggleMobileMenu()" class="block w-full text-center py-2.5 bg-saffron-500 text-white rounded-xl">Submit Abstract</a>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="gradient-hero pt-36 pb-24 text-white relative overflow-hidden min-h-[90vh] flex items-center">
+  <section class="bg-white pt-36 pb-24 text-slate-900 relative overflow-hidden min-h-[85vh] flex items-center border-b border-slate-100">
     <!-- Decorative background blobs -->
-    <div class="absolute top-1/4 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-10 right-10 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-10 right-10 w-96 h-96 bg-lightblue-100/60 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 left-10 w-96 h-96 bg-saffron-100/50 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
       <div class="text-center max-w-4xl mx-auto space-y-6">
         
-        <div class="inline-flex items-center space-x-2 bg-emerald-500/20 border border-emerald-400/30 px-4 py-2 rounded-full text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide uppercase backdrop-blur-md">
-          <i class="fa-solid fa-calendar-days text-emerald-400"></i>
+        <div class="inline-flex items-center space-x-2 bg-lightblue-50 border border-lightblue-200 px-4 py-2 rounded-full text-lightblue-600 text-xs sm:text-sm font-semibold tracking-wide uppercase">
+          <i class="fa-solid fa-calendar-days text-saffron-500"></i>
           <span>November 4 – 6, 2026 | International Conference</span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
-          Recent Advancement in <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Molecules & Materials</span> for Sustainable Development
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-slate-900">
+          Recent Advancement in <span class="text-saffron-500">Molecules & Materials</span> for Sustainable Development
         </h1>
         
-        <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
+        <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed">
           Bringing together researchers, academicians, and pioneers to present innovations in sustainable chemistry, nanomaterials, and green technologies.
         </p>
 
@@ -136,31 +133,31 @@
         <div class="pt-6 pb-4">
           <p class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-3">Conference Starts In</p>
           <div class="flex justify-center items-center gap-3 sm:gap-6 text-center" id="countdown">
-            <div class="bg-slate-800/80 border border-slate-700/80 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px]">
-              <span id="days" class="text-2xl sm:text-4xl font-extrabold text-emerald-400 block">00</span>
-              <span class="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Days</span>
+            <div class="bg-lightblue-50 border border-lightblue-100 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px] shadow-sm">
+              <span id="days" class="text-2xl sm:text-4xl font-extrabold text-saffron-500 block">00</span>
+              <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">Days</span>
             </div>
-            <div class="bg-slate-800/80 border border-slate-700/80 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px]">
-              <span id="hours" class="text-2xl sm:text-4xl font-extrabold text-emerald-400 block">00</span>
-              <span class="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Hours</span>
+            <div class="bg-lightblue-50 border border-lightblue-100 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px] shadow-sm">
+              <span id="hours" class="text-2xl sm:text-4xl font-extrabold text-saffron-500 block">00</span>
+              <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">Hours</span>
             </div>
-            <div class="bg-slate-800/80 border border-slate-700/80 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px]">
-              <span id="minutes" class="text-2xl sm:text-4xl font-extrabold text-emerald-400 block">00</span>
-              <span class="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Mins</span>
+            <div class="bg-lightblue-50 border border-lightblue-100 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px] shadow-sm">
+              <span id="minutes" class="text-2xl sm:text-4xl font-extrabold text-saffron-500 block">00</span>
+              <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">Mins</span>
             </div>
-            <div class="bg-slate-800/80 border border-slate-700/80 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px]">
-              <span id="seconds" class="text-2xl sm:text-4xl font-extrabold text-emerald-400 block">00</span>
-              <span class="text-[10px] sm:text-xs text-slate-400 uppercase font-semibold">Secs</span>
+            <div class="bg-lightblue-50 border border-lightblue-100 px-4 py-3 rounded-2xl min-w-[70px] sm:min-w-[90px] shadow-sm">
+              <span id="seconds" class="text-2xl sm:text-4xl font-extrabold text-saffron-500 block">00</span>
+              <span class="text-[10px] sm:text-xs text-slate-500 uppercase font-semibold">Secs</span>
             </div>
           </div>
         </div>
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-          <a href="#abstract" class="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-2xl shadow-lg shadow-emerald-500/25 transition-all text-center">
+          <a href="#abstract" class="w-full sm:w-auto px-8 py-4 bg-saffron-500 hover:bg-saffron-600 text-white font-bold rounded-2xl shadow-lg shadow-saffron-500/20 transition-all text-center">
             Submit Abstract
           </a>
-          <a href="#dates" class="w-full sm:w-auto px-8 py-4 bg-slate-800/80 hover:bg-slate-800 text-white font-semibold rounded-2xl border border-slate-700 transition-all text-center">
+          <a href="#dates" class="w-full sm:w-auto px-8 py-4 bg-lightblue-50 hover:bg-lightblue-100 text-slate-800 font-semibold rounded-2xl border border-lightblue-200 transition-all text-center">
             Important Dates
           </a>
         </div>
@@ -173,56 +170,56 @@
   <section id="dates" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-xs uppercase font-extrabold tracking-wider text-emerald-600 mb-2">Timeline</h2>
+        <h2 class="text-xs uppercase font-extrabold tracking-wider text-saffron-600 mb-2">Timeline</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Important Dates</p>
         <p class="text-slate-600 mt-3">Mark your calendar for key submission deadlines and registration milestones.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 hover:border-emerald-200 transition-all shadow-sm hover:shadow-md">
-          <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-4 text-xl">
+        <div class="p-6 bg-slate-50/80 rounded-3xl border border-slate-200/80 hover:border-saffron-300 transition-all shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 bg-saffron-100 text-saffron-600 rounded-2xl flex items-center justify-center mb-4 text-xl">
             <i class="fa-solid fa-file-arrow-up"></i>
           </div>
-          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1">Abstract Deadline</span>
+          <span class="text-xs font-bold text-saffron-600 uppercase tracking-wider block mb-1">Abstract Deadline</span>
           <p class="text-xl font-extrabold text-slate-900">15 Aug 2026</p>
           <p class="text-sm text-slate-500 mt-2">Submit 300-word abstracts via portal.</p>
         </div>
 
-        <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 hover:border-emerald-200 transition-all shadow-sm hover:shadow-md">
-          <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-4 text-xl">
+        <div class="p-6 bg-slate-50/80 rounded-3xl border border-slate-200/80 hover:border-saffron-300 transition-all shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 bg-lightblue-100 text-lightblue-600 rounded-2xl flex items-center justify-center mb-4 text-xl">
             <i class="fa-solid fa-circle-check"></i>
           </div>
-          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1">Acceptance Notice</span>
+          <span class="text-xs font-bold text-lightblue-600 uppercase tracking-wider block mb-1">Acceptance Notice</span>
           <p class="text-xl font-extrabold text-slate-900">01 Sep 2026</p>
           <p class="text-sm text-slate-500 mt-2">Review outcomes sent via email.</p>
         </div>
 
-        <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100 hover:border-emerald-200 transition-all shadow-sm hover:shadow-md">
-          <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mb-4 text-xl">
+        <div class="p-6 bg-slate-50/80 rounded-3xl border border-slate-200/80 hover:border-saffron-300 transition-all shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 bg-saffron-100 text-saffron-600 rounded-2xl flex items-center justify-center mb-4 text-xl">
             <i class="fa-solid fa-ticket"></i>
           </div>
-          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1">Early Registration</span>
+          <span class="text-xs font-bold text-saffron-600 uppercase tracking-wider block mb-1">Early Registration</span>
           <p class="text-xl font-extrabold text-slate-900">20 Sep 2026</p>
           <p class="text-sm text-slate-500 mt-2">Discounted early-bird fee deadline.</p>
         </div>
 
-        <div class="p-6 bg-emerald-600 text-white rounded-3xl shadow-lg shadow-emerald-600/20">
+        <div class="p-6 bg-saffron-500 text-white rounded-3xl shadow-lg shadow-saffron-500/20">
           <div class="w-12 h-12 bg-white/20 text-white rounded-2xl flex items-center justify-center mb-4 text-xl">
             <i class="fa-solid fa-flag"></i>
           </div>
-          <span class="text-xs font-bold text-emerald-200 uppercase tracking-wider block mb-1">Conference Days</span>
+          <span class="text-xs font-bold text-saffron-100 uppercase tracking-wider block mb-1">Conference Days</span>
           <p class="text-xl font-extrabold text-white">4 - 6 Nov 2026</p>
-          <p class="text-sm text-emerald-100 mt-2">Technical sessions & keynotes live.</p>
+          <p class="text-sm text-saffron-50 mt-2">Technical sessions & keynotes live.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- KEYNOTE SPEAKERS SECTION -->
-  <section id="speakers" class="py-20 bg-slate-100/60">
+  <section id="speakers" class="py-20 bg-lightblue-50/50 border-y border-lightblue-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-xs uppercase font-extrabold tracking-wider text-emerald-600 mb-2">Keynote & Invited</h2>
+        <h2 class="text-xs uppercase font-extrabold tracking-wider text-saffron-600 mb-2">Keynote & Invited</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Invited Speakers</p>
         <p class="text-slate-600 mt-3">Click on any speaker card to open their bio modal.</p>
       </div>
@@ -234,11 +231,11 @@
           <div class="relative overflow-hidden rounded-2xl mb-5">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Prof. Elena Rostova" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-              <span class="text-xs text-white font-semibold bg-emerald-600 px-3 py-1 rounded-full">View Bio & Abstract</span>
+              <span class="text-xs text-white font-semibold bg-saffron-500 px-3 py-1 rounded-full">View Bio & Abstract</span>
             </div>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Prof. Elena Rostova</h3>
-          <p class="text-sm font-semibold text-emerald-600">Institute of Sustainable Chemistry</p>
+          <h3 class="text-xl font-bold text-slate-900 group-hover:text-saffron-600 transition-colors">Prof. Elena Rostova</h3>
+          <p class="text-sm font-semibold text-saffron-600">Institute of Sustainable Chemistry</p>
           <p class="text-xs text-slate-500 mt-2 line-clamp-2">Keynote: Catalytic Transformation of Biomass into Functional Materials.</p>
         </div>
 
@@ -247,11 +244,11 @@
           <div class="relative overflow-hidden rounded-2xl mb-5">
             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Dr. Aris Thorne" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-              <span class="text-xs text-white font-semibold bg-emerald-600 px-3 py-1 rounded-full">View Bio & Abstract</span>
+              <span class="text-xs text-white font-semibold bg-saffron-500 px-3 py-1 rounded-full">View Bio & Abstract</span>
             </div>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Dr. Aris Thorne</h3>
-          <p class="text-sm font-semibold text-emerald-600">Department of Nanomaterials</p>
+          <h3 class="text-xl font-bold text-slate-900 group-hover:text-saffron-600 transition-colors">Dr. Aris Thorne</h3>
+          <p class="text-sm font-semibold text-saffron-600">Department of Nanomaterials</p>
           <p class="text-xs text-slate-500 mt-2 line-clamp-2">Keynote: Quantum Chemical Simulations for Plasmonic Solar Energy Harvesting.</p>
         </div>
 
@@ -260,11 +257,11 @@
           <div class="relative overflow-hidden rounded-2xl mb-5">
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Prof. Sunita Rao" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-              <span class="text-xs text-white font-semibold bg-emerald-600 px-3 py-1 rounded-full">View Bio & Abstract</span>
+              <span class="text-xs text-white font-semibold bg-saffron-500 px-3 py-1 rounded-full">View Bio & Abstract</span>
             </div>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Prof. Sunita Rao</h3>
-          <p class="text-sm font-semibold text-emerald-600">Center for Advanced Materials</p>
+          <h3 class="text-xl font-bold text-slate-900 group-hover:text-saffron-600 transition-colors">Prof. Sunita Rao</h3>
+          <p class="text-sm font-semibold text-saffron-600">Center for Advanced Materials</p>
           <p class="text-xs text-slate-500 mt-2 line-clamp-2">Keynote: Metal-Organic Frameworks for Carbon Capture and Environmental Remediation.</p>
         </div>
 
@@ -275,7 +272,7 @@
   <!-- FLOATING BIO MODALS FOR SPEAKERS -->
   
   <div id="speaker1" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh] animate-fade-in">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh] animate-fade-in border border-slate-200">
       <button onclick="closeModal('speaker1')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full bg-slate-100">
         &times;
       </button>
@@ -283,8 +280,8 @@
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300" class="w-20 h-20 rounded-2xl object-cover shadow-md">
         <div>
           <h3 class="text-2xl font-bold text-slate-900">Prof. Elena Rostova</h3>
-          <p class="text-emerald-600 text-sm font-semibold">Institute of Sustainable Chemistry</p>
-          <span class="inline-block mt-1 bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Keynote Speaker</span>
+          <p class="text-saffron-600 text-sm font-semibold">Institute of Sustainable Chemistry</p>
+          <span class="inline-block mt-1 bg-saffron-100 text-saffron-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Keynote Speaker</span>
         </div>
       </div>
       <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
@@ -300,7 +297,7 @@
   </div>
 
   <div id="speaker2" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh] animate-fade-in">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh] animate-fade-in border border-slate-200">
       <button onclick="closeModal('speaker2')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full bg-slate-100">
         &times;
       </button>
@@ -308,8 +305,8 @@
         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300" class="w-20 h-20 rounded-2xl object-cover shadow-md">
         <div>
           <h3 class="text-2xl font-bold text-slate-900">Dr. Aris Thorne</h3>
-          <p class="text-emerald-600 text-sm font-semibold">Department of Nanomaterials</p>
-          <span class="inline-block mt-1 bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Keynote Speaker</span>
+          <p class="text-saffron-600 text-sm font-semibold">Department of Nanomaterials</p>
+          <span class="inline-block mt-1 bg-saffron-100 text-saffron-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Keynote Speaker</span>
         </div>
       </div>
       <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
@@ -325,7 +322,7 @@
   </div>
 
   <div id="speaker3" class="fixed inset-0 modal-backdrop hidden flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh] animate-fade-in">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh] animate-fade-in border border-slate-200">
       <button onclick="closeModal('speaker3')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full bg-slate-100">
         &times;
       </button>
@@ -333,8 +330,8 @@
         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300" class="w-20 h-20 rounded-2xl object-cover shadow-md">
         <div>
           <h3 class="text-2xl font-bold text-slate-900">Prof. Sunita Rao</h3>
-          <p class="text-emerald-600 text-sm font-semibold">Center for Advanced Materials</p>
-          <span class="inline-block mt-1 bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Invited Speaker</span>
+          <p class="text-saffron-600 text-sm font-semibold">Center for Advanced Materials</p>
+          <span class="inline-block mt-1 bg-saffron-100 text-saffron-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Invited Speaker</span>
         </div>
       </div>
       <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
@@ -353,30 +350,30 @@
   <section id="tracks" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-xs uppercase font-extrabold tracking-wider text-emerald-600 mb-2">Scope</h2>
+        <h2 class="text-xs uppercase font-extrabold tracking-wider text-saffron-600 mb-2">Scope</h2>
         <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Conference Tracks</p>
         <p class="text-slate-600 mt-3">Submissions are welcomed across interdisciplinary domains.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200/80 hover:border-emerald-500 transition-all">
-          <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center mb-6 text-xl shadow-md">
+        <div class="p-8 bg-slate-50/70 rounded-3xl border border-slate-200/80 hover:border-saffron-400 transition-all">
+          <div class="w-12 h-12 bg-saffron-500 text-white rounded-2xl flex items-center justify-center mb-6 text-xl shadow-md">
             <i class="fa-solid fa-leaf"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Track 1: Green Chemistry & Catalysis</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Atom-economic pathways, bio-catalysis, green synthesis, and sustainable chemical processing.</p>
         </div>
 
-        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200/80 hover:border-emerald-500 transition-all">
-          <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center mb-6 text-xl shadow-md">
+        <div class="p-8 bg-slate-50/70 rounded-3xl border border-slate-200/80 hover:border-saffron-400 transition-all">
+          <div class="w-12 h-12 bg-lightblue-500 text-white rounded-2xl flex items-center justify-center mb-6 text-xl shadow-md">
             <i class="fa-solid fa-atom"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Track 2: Nanomaterials & Energy</h3>
           <p class="text-slate-600 text-sm leading-relaxed">Nanoplasmonics, functional energy materials, renewable energy storage, and smart devices.</p>
         </div>
 
-        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200/80 hover:border-emerald-500 transition-all">
-          <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center mb-6 text-xl shadow-md">
+        <div class="p-8 bg-slate-50/70 rounded-3xl border border-slate-200/80 hover:border-saffron-400 transition-all">
+          <div class="w-12 h-12 bg-saffron-500 text-white rounded-2xl flex items-center justify-center mb-6 text-xl shadow-md">
             <i class="fa-solid fa-laptop-code"></i>
           </div>
           <h3 class="text-xl font-bold text-slate-900 mb-3">Track 3: Computational Modeling</h3>
@@ -387,32 +384,32 @@
   </section>
 
   <!-- ABSTRACT SUBMISSION SECTION -->
-  <section id="abstract" class="py-20 bg-slate-900 text-white relative">
+  <section id="abstract" class="py-20 bg-lightblue-50/80 text-slate-900 relative border-t border-lightblue-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h2 class="text-xs uppercase font-extrabold tracking-wider text-emerald-400 mb-2">Submissions</h2>
-      <p class="text-3xl sm:text-4xl font-extrabold text-white">Submit Abstract & Payment Info</p>
-      <p class="text-slate-300 mt-3 max-w-xl mx-auto">
+      <h2 class="text-xs uppercase font-extrabold tracking-wider text-saffron-600 mb-2">Submissions</h2>
+      <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Submit Abstract & Payment Info</p>
+      <p class="text-slate-600 mt-3 max-w-xl mx-auto">
         Submit 300-word abstracts in Microsoft Word (.doc/.docx) along with candidate registration details.
       </p>
 
-      <div class="mt-10 bg-slate-800/80 border border-slate-700/80 p-8 rounded-3xl text-left backdrop-blur-md shadow-2xl">
+      <div class="mt-10 bg-white border border-lightblue-200 p-8 rounded-3xl text-left shadow-xl">
         <div class="space-y-4 mb-8">
-          <div class="flex items-center space-x-3 text-slate-200 text-sm">
-            <i class="fa-solid fa-check text-emerald-400"></i>
+          <div class="flex items-center space-x-3 text-slate-700 text-sm">
+            <i class="fa-solid fa-check text-saffron-500 font-bold"></i>
             <span>File Format: Microsoft Word (.doc / .docx)</span>
           </div>
-          <div class="flex items-center space-x-3 text-slate-200 text-sm">
-            <i class="fa-solid fa-check text-emerald-400"></i>
+          <div class="flex items-center space-x-3 text-slate-700 text-sm">
+            <i class="fa-solid fa-check text-saffron-500 font-bold"></i>
             <span>Maximum Word Count: 300 Words</span>
           </div>
-          <div class="flex items-center space-x-3 text-slate-200 text-sm">
-            <i class="fa-solid fa-check text-emerald-400"></i>
+          <div class="flex items-center space-x-3 text-slate-700 text-sm">
+            <i class="fa-solid fa-check text-saffron-500 font-bold"></i>
             <span>Upload Payment Receipt / Transaction Reference Number</span>
           </div>
         </div>
 
         <div class="text-center pt-4">
-          <a href="https://forms.google.com" target="_blank" class="inline-block w-full sm:w-auto px-10 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-2xl shadow-lg shadow-emerald-500/25 transition-all text-lg">
+          <a href="https://forms.google.com" target="_blank" class="inline-block w-full sm:w-auto px-10 py-4 bg-saffron-500 hover:bg-saffron-600 text-white font-bold rounded-2xl shadow-lg shadow-saffron-500/20 transition-all text-lg">
             Open Submission Form <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-sm"></i>
           </a>
           <p class="text-xs text-slate-400 mt-3">Replace link with your Google Form or Tally URL.</p>
@@ -422,7 +419,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+  <footer class="bg-slate-900 text-slate-400 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
       <div>
         <p class="text-white font-extrabold text-lg">RA2M-SD-2026</p>
