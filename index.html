@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICAMSI-2027 | International Conference on Advanced Materials & Scientific Innovation</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e0e9ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            400: '#a78bfa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Floating Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-4 px-4 sm:px-8">
+        <nav class="max-w-7xl mx-auto glass rounded-2xl border border-white/50 shadow-lg px-6 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-500 flex items-center justify-center text-white font-black text-xl shadow-md">
+                    I
+                </div>
+                <div>
+                    <span class="text-lg font-black tracking-tight bg-gradient-to-r from-brand-700 to-accent-600 bg-clip-text text-transparent block leading-tight">ICAMSI 2027</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-slate-500 block">Oct 14-16 • Geneva</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Items -->
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#about" class="hover:text-brand-600 transition">About</a>
+                <a href="#dates" class="hover:text-brand-600 transition">Key Dates</a>
+                <a href="#speakers" class="hover:text-brand-600 transition">Speakers</a>
+                <a href="#schedule" class="hover:text-brand-600 transition">Schedule</a>
+                <a href="#abstract" class="hover:text-brand-600 transition">Abstracts</a>
+                <a href="#registration" class="hover:text-brand-600 transition">Registration</a>
+            </div>
+
+            <!-- CTA Actions -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="#abstract" class="text-sm font-semibold text-slate-700 hover:text-brand-600 px-4 py-2 rounded-xl transition">Submit Paper</a>
+                <a href="#registration" class="text-sm font-semibold text-white bg-gradient-to-r from-brand-600 to-accent-600 hover:from-brand-700 hover:to-accent-700 px-5 py-2.5 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-0.5">Register Now</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 glass rounded-2xl border border-white/50 shadow-xl p-6 flex flex-col gap-4 text-slate-700 font-medium">
+            <a href="#about" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-600 border-b border-slate-100">About</a>
+            <a href="#dates" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-600 border-b border-slate-100">Key Dates</a>
+            <a href="#speakers" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-600 border-b border-slate-100">Speakers</a>
+            <a href="#schedule" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-600 border-b border-slate-100">Schedule</a>
+            <a href="#abstract" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-600 border-b border-slate-100">Abstract Submission</a>
+            <a href="#registration" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-600 border-b border-slate-100">Registration</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="#abstract" onclick="toggleMobileMenu()" class="text-center py-2.5 text-slate-700 bg-slate-100 font-semibold rounded-xl">Submit Abstract</a>
+                <a href="#registration" onclick="toggleMobileMenu()" class="text-center py-2.5 text-white bg-brand-600 font-semibold rounded-xl shadow-md">Register Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-grid-pattern">
+        <!-- Background Decorative Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-brand-500/20 to-accent-500/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-brand-200 text-brand-700 font-semibold text-xs sm:text-sm shadow-sm mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span class="flex h-2 w-2 rounded-full bg-emerald-500 -ml-4"></span>
+                <span>Hybrid Event • Geneva International Convention Center & Online</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-none mb-6">
+                International Conference on <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-brand-600 via-accent-600 to-indigo-600 bg-clip-text text-transparent">Advanced Materials</span> & Innovation
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-600 font-normal leading-relaxed mb-10">
+                Bringing together over 1,500 Nobel laureates, pioneering researchers, industry experts, and rising scholars to shape the future of nanotechnology, quantum materials, and sustainable energy.
+            </p>
+
+            <!-- Event Date & Location Cards -->
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-12 text-sm sm:text-base text-slate-700 font-semibold">
+                <div class="flex items-center gap-3 glass px-5 py-3 rounded-2xl shadow-sm border border-slate-200/60">
+                    <i class="fa-regular fa-calendar-days text-brand-600 text-xl"></i>
+                    <span>October 14–16, 2027</span>
+                </div>
+                <div class="flex items-center gap-3 glass px-5 py-3 rounded-2xl shadow-sm border border-slate-200/60">
+                    <i class="fa-solid fa-location-dot text-rose-500 text-xl"></i>
+                    <span>Geneva, Switzerland</span>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#abstract" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-base shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-file-arrow-up"></i>
+                    <span>Submit Abstract</span>
+                </a>
+                <a href="#registration" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-accent-600 hover:from-brand-700 hover:to-accent-700 text-white font-bold text-base shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Register Now</span>
+                </a>
+            </div>
+
+            <!-- Live Countdown Timer -->
+            <div class="max-w-4xl mx-auto glass p-6 sm:p-8 rounded-3xl border border-white shadow-xl">
+                <h3 class="text-xs uppercase font-bold tracking-widest text-slate-500 mb-6">Conference Starts In</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="countdown">
+                    <div class="p-4 bg-white/80 rounded-2xl shadow-sm border border-slate-100">
+                        <span id="days" class="text-3xl sm:text-5xl font-black text-brand-600 block">00</span>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 block">Days</span>
+                    </div>
+                    <div class="p-4 bg-white/80 rounded-2xl shadow-sm border border-slate-100">
+                        <span id="hours" class="text-3xl sm:text-5xl font-black text-brand-600 block">00</span>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 block">Hours</span>
+                    </div>
+                    <div class="p-4 bg-white/80 rounded-2xl shadow-sm border border-slate-100">
+                        <span id="minutes" class="text-3xl sm:text-5xl font-black text-brand-600 block">00</span>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 block">Minutes</span>
+                    </div>
+                    <div class="p-4 bg-white/80 rounded-2xl shadow-sm border border-slate-100">
+                        <span id="seconds" class="text-3xl sm:text-5xl font-black text-accent-600 block">00</span>
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 block">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Dates Timeline -->
+    <section id="dates" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Deadlines & Milestones</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Important Conference Dates</h2>
+                <p class="text-slate-600 mt-2 text-base">Keep track of crucial deadlines for submission, peer reviews, and registration discounts.</p>
+            </div>
+
+            <!-- Timeline Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Date Card 1 -->
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200 hover:border-brand-500 transition shadow-sm hover:shadow-md relative overflow-hidden group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">Open Now</span>
+                        <i class="fa-solid fa-cloud-arrow-up text-brand-500 text-2xl group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Abstract Submission Opens</h3>
+                    <p class="text-2xl font-black text-brand-600 mb-2">May 15, 2027</p>
+                    <p class="text-xs text-slate-500">Call for oral and poster presentation submissions worldwide.</p>
+                </div>
+
+                <!-- Date Card 2 -->
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200 hover:border-brand-500 transition shadow-sm hover:shadow-md relative overflow-hidden group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700">Deadline</span>
+                        <i class="fa-solid fa-hourglass-half text-amber-500 text-2xl group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Abstract Submission Deadline</h3>
+                    <p class="text-2xl font-black text-amber-600 mb-2">July 30, 2027</p>
+                    <p class="text-xs text-slate-500">Final deadline for all abstract submissions to undergo peer review.</p>
+                </div>
+
+                <!-- Date Card 3 -->
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200 hover:border-brand-500 transition shadow-sm hover:shadow-md relative overflow-hidden group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">Upcoming</span>
+                        <i class="fa-solid fa-envelope-open-text text-indigo-500 text-2xl group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Acceptance Notification</h3>
+                    <p class="text-2xl font-black text-indigo-600 mb-2">Aug 20, 2027</p>
+                    <p class="text-xs text-slate-500">Official acceptance notifications sent via email to authors.</p>
+                </div>
+
+                <!-- Date Card 4 -->
+                <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200 hover:border-brand-500 transition shadow-sm hover:shadow-md relative overflow-hidden group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700">Discount</span>
+                        <i class="fa-solid fa-tags text-purple-500 text-2xl group-hover:scale-110 transition"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">Early Bird Registration</h3>
+                    <p class="text-2xl font-black text-purple-600 mb-2">Sept 10, 2027</p>
+                    <p class="text-xs text-slate-500">Save up to 30% on full conference registration passes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keynote & Invited Speakers Section -->
+    <section id="speakers" class="py-20 bg-slate-100/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-accent-600 bg-accent-50 px-3 py-1 rounded-full border border-accent-200">World-Class Visionaries</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Keynote & Guest Speakers</h2>
+                <p class="text-slate-600 mt-2 text-base">Learn from international pioneers leading groundbreaking advancements in science and engineering.</p>
+            </div>
+
+            <!-- Speaker Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Speaker 1 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Dr. Aris Thorne" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Keynote Speaker</div>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900">Prof. Aris Thorne</h3>
+                        <p class="text-brand-600 font-semibold text-sm mb-1">Director of Quantum Photonics</p>
+                        <p class="text-slate-500 text-xs mb-4">ETH Zürich, Switzerland</p>
+                        <p class="text-slate-600 text-sm line-clamp-2 mb-6">Pioneering multi-qubit nanophotonic waveguides for ultra-scalable quantum processors.</p>
+                    </div>
+                    <button onclick="openSpeakerModal('speaker1')" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <span>View Bio & Abstract</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Speaker 2 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600" alt="Dr. Elena Rostova" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Invited Speaker</div>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900">Dr. Elena Rostova</h3>
+                        <p class="text-brand-600 font-semibold text-sm mb-1">Head of Smart Biomaterials</p>
+                        <p class="text-slate-500 text-xs mb-4">Max Planck Institute, Germany</p>
+                        <p class="text-slate-600 text-sm line-clamp-2 mb-6">Self-healing polymer networks engineered for next-generation bio-integrated prosthetics.</p>
+                    </div>
+                    <button onclick="openSpeakerModal('speaker2')" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <span>View Bio & Abstract</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Speaker 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Prof. Kenji Tanaka" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Keynote Speaker</div>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900">Prof. Kenji Tanaka</h3>
+                        <p class="text-brand-600 font-semibold text-sm mb-1">Chair of Next-Gen Energy Storage</p>
+                        <p class="text-slate-500 text-xs mb-4">The University of Tokyo, Japan</p>
+                        <p class="text-slate-600 text-sm line-clamp-2 mb-6">Solid-state lithium-sulfur battery architectures enabling 1,000 km range EV performance.</p>
+                    </div>
+                    <button onclick="openSpeakerModal('speaker3')" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <span>View Bio & Abstract</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Speaker 4 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Dr. Marcus Vance" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Invited Speaker</div>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900">Dr. Marcus Vance</h3>
+                        <p class="text-brand-600 font-semibold text-sm mb-1">Lead AI Materials Discovery</p>
+                        <p class="text-slate-500 text-xs mb-4">MIT Laboratory for Energy, USA</p>
+                        <p class="text-slate-600 text-sm line-clamp-2 mb-6">Generative AI algorithms accelerating novel superconductor design cycles from years to days.</p>
+                    </div>
+                    <button onclick="openSpeakerModal('speaker4')" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <span>View Bio & Abstract</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Speaker 5 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600" alt="Prof. Aisha Patel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Keynote Speaker</div>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900">Prof. Aisha Patel</h3>
+                        <p class="text-brand-600 font-semibold text-sm mb-1">Nanoplasmonics & Catalyst Chair</p>
+                        <p class="text-slate-500 text-xs mb-4">Imperial College London, UK</p>
+                        <p class="text-slate-600 text-sm line-clamp-2 mb-6">Solar-driven hydrogen production using nanoplasmonic metal-organic frameworks (MOFs).</p>
+                    </div>
+                    <button onclick="openSpeakerModal('speaker5')" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <span>View Bio & Abstract</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Speaker 6 -->
+                <div class="bg-white rounded-3xl p-6 shadow-md hover:shadow-2xl transition duration-300 border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative overflow-hidden rounded-2xl mb-6 aspect-square">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600" alt="Dr. Carlos Mendez" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">Invited Speaker</div>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900">Dr. Carlos Mendez</h3>
+                        <p class="text-brand-600 font-semibold text-sm mb-1">Director of 2D Quantum Materials</p>
+                        <p class="text-slate-500 text-xs mb-4">ICFO Barcelona, Spain</p>
+                        <p class="text-slate-600 text-sm line-clamp-2 mb-6">Moiré superlattices in twisted bilayer graphene for room-temperature topological electronics.</p>
+                    </div>
+                    <button onclick="openSpeakerModal('speaker6')" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <span>View Bio & Abstract</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING SPEAKER BIO MODAL POPUPS -->
+    <div id="modalOverlay" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300">
+
+        <!-- Speaker Modal Container -->
+        <div id="modalContent" class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl border border-slate-100 transform transition-all scale-95 opacity-0">
+            <!-- Close Button -->
+            <button onclick="closeSpeakerModal()" class="absolute top-5 right-5 w-10 h-10 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full flex items-center justify-center font-bold text-lg transition">
+                &times;
+            </button>
+
+            <!-- Dynamic Modal Inner Markup -->
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Abstract Submission Section -->
+    <section id="abstract" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+                <!-- Guidelines Column -->
+                <div class="lg:col-span-5">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Call For Papers</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Abstract Submission Guidelines</h2>
+                    <p class="text-slate-600 mt-4 text-base leading-relaxed">
+                        We invite researchers and scholars to submit original research abstracts for oral or poster presentations at ICAMSI-2027.
+                    </p>
+
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-file-word text-brand-600 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Word Limit & Format</h4>
+                                <p class="text-xs text-slate-600 mt-1">Max 300 words. PDF or MS Word (.docx) format using the official conference template.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-list-check text-brand-600 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Main Conference Tracks</h4>
+                                <ul class="text-xs text-slate-600 mt-1 grid grid-cols-2 gap-1 list-disc list-inside">
+                                    <li>Nanoplasmonics</li>
+                                    <li>Quantum Materials</li>
+                                    <li>Biotechnology</li>
+                                    <li>Renewable Energy</li>
+                                    <li>AI in Materials</li>
+                                    <li>Polymers & Composites</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-award text-brand-600 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Young Scientist Awards</h4>
+                                <p class="text-xs text-slate-600 mt-1">Top 3 student presentations will receive $1,500 research grants and publication certificates.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Template Download Link -->
+                    <div class="mt-8">
+                        <button onclick="downloadTemplateMock()" class="inline-flex items-center gap-2 text-sm font-bold text-brand-600 hover:text-brand-700 bg-brand-50 hover:bg-brand-100 px-5 py-3 rounded-xl transition">
+                            <i class="fa-solid fa-download"></i>
+                            <span>Download Official Abstract Template (.docx)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Submission Interactive Form Column -->
+                <div class="lg:col-span-7 glass p-8 rounded-3xl border border-slate-200 shadow-xl">
+                    <h3 class="text-xl font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-brand-600"></i>
+                        <span>Submit Your Abstract Online</span>
+                    </h3>
+
+                    <form id="abstractForm" onsubmit="handleAbstractSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Author Name *</label>
+                                <input type="text" required placeholder="Dr. Sarah Connor" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 text-sm outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address *</label>
+                                <input type="email" required placeholder="s.connor@university.edu" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 text-sm outline-none transition">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Affiliation/University *</label>
+                                <input type="text" required placeholder="Stanford University" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 text-sm outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Presentation Type *</label>
+                                <select required class="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 text-sm outline-none transition">
+                                    <option value="">Select presentation preference</option>
+                                    <option value="oral">Oral Presentation</option>
+                                    <option value="poster">Poster Presentation</option>
+                                    <option value="keynote">Virtual Poster</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Conference Track *</label>
+                            <select required class="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 text-sm outline-none transition">
+                                <option value="">Select track category</option>
+                                <option value="nano">Nanoplasmonics & Photonics</option>
+                                <option value="quantum">Quantum Materials & Superconductors</option>
+                                <option value="bio">Biotechnology & Bio-integrated Systems</option>
+                                <option value="energy">Renewable Energy & Battery Storage</option>
+                                <option value="ai">AI Driven Materials Discovery</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Abstract Title *</label>
+                            <input type="text" required placeholder="Enter the full title of your research abstract" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 text-sm outline-none transition">
+                        </div>
+
+                        <!-- Dropzone Mockup -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Upload File (PDF or DOCX) *</label>
+                            <div id="dropzone" onclick="triggerFileSelect()" class="border-2 border-dashed border-slate-300 hover:border-brand-500 bg-white/50 rounded-2xl p-6 text-center cursor-pointer transition group">
+                                <i class="fa-solid fa-cloud-arrow-up text-3xl text-slate-400 group-hover:text-brand-600 transition mb-2"></i>
+                                <p class="text-xs font-bold text-slate-700" id="fileLabel">Click to upload or drag & drop file here</p>
+                                <p class="text-[10px] text-slate-400 mt-1">Maximum file size: 10 MB (.pdf, .docx)</p>
+                                <input type="file" id="fileInput" class="hidden" accept=".pdf,.docx" onchange="handleFileSelect(event)">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Submit Abstract Now</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule / Tracks Section -->
+    <section id="schedule" class="py-20 bg-slate-100/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Program Agenda</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Conference Schedule</h2>
+                <p class="text-slate-600 mt-2 text-base">Select a day below to view plenary lectures, technical tracks, and networking sessions.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex glass p-1.5 rounded-2xl border border-slate-200 shadow-sm gap-2">
+                    <button onclick="switchTab('day1')" id="tab-day1" class="px-6 py-3 rounded-xl font-extrabold text-sm transition bg-brand-600 text-white shadow-md">
+                        Day 1: Oct 14, 2027
+                    </button>
+                    <button onclick="switchTab('day2')" id="tab-day2" class="px-6 py-3 rounded-xl font-extrabold text-sm transition text-slate-600 hover:text-slate-900">
+                        Day 2: Oct 15, 2027
+                    </button>
+                    <button onclick="switchTab('day3')" id="tab-day3" class="px-6 py-3 rounded-xl font-extrabold text-sm transition text-slate-600 hover:text-slate-900">
+                        Day 3: Oct 16, 2027
+                    </button>
+                </div>
+            </div>
+
+            <!-- Schedule Timelines -->
+            <div id="scheduleContent" class="max-w-4xl mx-auto space-y-4">
+                <!-- Dynamic Content Rendered via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Pass Options</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Registration Rates</h2>
+                <p class="text-slate-600 mt-2 text-base">Choose the tier that best fits your participation needs. All passes include access to conference proceedings.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Student Pass -->
+                <div class="rounded-3xl p-8 bg-slate-50 border border-slate-200 hover:border-brand-500 transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Students</span>
+                            <i class="fa-solid fa-graduation-cap text-2xl text-slate-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Student Delegate</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-black text-slate-900">$299</span>
+                            <span class="text-xs text-slate-500"> / USD (Early Bird)</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Full 3-Day Technical Sessions</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Digital Proceedings & Certificate</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Daily Lunch & Coffee Breaks</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Poster Session Entry</li>
+                        </ul>
+                    </div>
+                    <button onclick="mockRegister('Student Delegate', '$299')" class="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-sm transition">Select Student Pass</button>
+                </div>
+
+                <!-- Academic Pass (Featured) -->
+                <div class="rounded-3xl p-8 bg-gradient-to-b from-slate-900 to-slate-800 text-white shadow-2xl border-2 border-brand-500 flex flex-col justify-between relative transform lg:-translate-y-3">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-600 text-white font-bold text-xs uppercase px-4 py-1 rounded-full shadow-md">Most Popular</div>
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-brand-300">Academics</span>
+                            <i class="fa-solid fa-building-columns text-2xl text-brand-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Academic / Faculty</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-black text-white">$499</span>
+                            <span class="text-xs text-slate-400"> / USD (Early Bird)</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Everything in Student Pass</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Oral Presentation Slot Priority</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Gala Dinner & Network Pass</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Published in Scopus Journal</li>
+                        </ul>
+                    </div>
+                    <button onclick="mockRegister('Academic Delegate', '$499')" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-accent-600 hover:from-brand-700 hover:to-accent-700 text-white font-bold text-sm transition shadow-lg">Register Academic Pass</button>
+                </div>
+
+                <!-- Industry Pass -->
+                <div class="rounded-3xl p-8 bg-slate-50 border border-slate-200 hover:border-brand-500 transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-600 bg-accent-50 px-3 py-1 rounded-full">Industry</span>
+                            <i class="fa-solid fa-briefcase text-2xl text-slate-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Industry Executive</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-black text-slate-900">$799</span>
+                            <span class="text-xs text-slate-500"> / USD (Early Bird)</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> All Academic Pass Benefits</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> VIP Lounge & B2B Matchmaking</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Exhibition Booth Discount (20%)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Post-event Delegate Contacts</li>
+                        </ul>
+                    </div>
+                    <button onclick="mockRegister('Industry Pass', '$799')" class="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-sm transition">Select Industry Pass</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Venue Section -->
+    <footer class="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+                <!-- Col 1: About -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-black">I</div>
+                        <span class="text-lg font-black text-white">ICAMSI 2027</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        The premier international conference for interdisciplinary scientific research, uniting brilliant minds to forge next-generation innovations.
+                    </p>
+                    <div class="flex gap-3 text-slate-400">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center hover:bg-brand-600 hover:text-white transition"><i class="fa-brands fa-youtube text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#about" class="hover:text-white transition">About Conference</a></li>
+                        <li><a href="#dates" class="hover:text-white transition">Important Milestones</a></li>
+                        <li><a href="#speakers" class="hover:text-white transition">Invited Speakers</a></li>
+                        <li><a href="#abstract" class="hover:text-white transition">Call for Papers</a></li>
+                        <li><a href="#registration" class="hover:text-white transition">Registration Fees</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Secretariat & Contact</h4>
+                    <ul class="space-y-3 text-xs text-slate-400">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-500"></i>
+                            <span>secretariat@icamsi2027.org</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-500"></i>
+                            <span>+41 22 767 6111</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-500"></i>
+                            <span>Geneva International Centre, Switzerland</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Venue Map Mockup -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Venue Location</h4>
+                    <div class="rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 p-2 relative group">
+                        <div class="bg-slate-800 h-28 rounded-xl flex flex-col items-center justify-center text-center p-3 relative overflow-hidden">
+                            <i class="fa-solid fa-map-location-dot text-3xl text-brand-500 mb-1"></i>
+                            <span class="text-xs font-bold text-white">Geneva Convention Center</span>
+                            <span class="text-[10px] text-slate-400">Route de François 12, Geneva</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>© 2027 ICAMSI Organization. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-400">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-400">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript logic -->
+    <script>
+        // Speaker Data Store for Dynamic Modal Popups
+        const speakersData = {
+            speaker1: {
+                name: "Prof. Aris Thorne",
+                role: "Director of Quantum Photonics",
+                inst: "ETH Zürich, Switzerland",
+                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+                talkTitle: "Scaling Quantum Photonic Waveguides for Superconducting Systems",
+                bio: "Prof. Aris Thorne is a globally recognized pioneer in quantum electrodynamics and integrated optical circuits. He has published over 180 papers in Nature and Science, and holds 14 patents in optical quantum logic gates.",
+                interests: ["Quantum Optics", "Nanophotonics", "Superconducting Qubits", "Photonic Crystals"],
+                session: "Keynote Session • Day 1, 10:00 AM"
+            },
+            speaker2: {
+                name: "Dr. Elena Rostova",
+                role: "Head of Smart Biomaterials",
+                inst: "Max Planck Institute, Germany",
+                img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600",
+                talkTitle: "Self-Healing Bio-Polymers in Regenerative Neural Interfaces",
+                bio: "Dr. Rostova specializes in bio-mimetic polymers that autonomous repair under physiological conditions. Her work has enabled biocompatible neural prosthetics with multi-year operational stability.",
+                interests: ["Smart Polymers", "Biocompatible Interfaces", "Regenerative Engineering"],
+                session: "Technical Track B • Day 2, 11:30 AM"
+            },
+            speaker3: {
+                name: "Prof. Kenji Tanaka",
+                role: "Chair of Next-Gen Energy Storage",
+                inst: "The University of Tokyo, Japan",
+                img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
+                talkTitle: "Solid-State Lithium-Sulfur Batteries: Breakthroughs in Dendrite Mitigation",
+                bio: "Prof. Tanaka leads Tokyo's Advanced Energy Storage Lab. His recent discoveries in solid electrolyte interphases have quadrupled battery cycle lifetime in ultra-fast charging conditions.",
+                interests: ["Solid-State Batteries", "Energy Storage", "Lithium Chemistry"],
+                session: "Keynote Session • Day 2, 09:30 AM"
+            },
+            speaker4: {
+                name: "Dr. Marcus Vance",
+                role: "Lead AI Materials Discovery",
+                inst: "MIT Laboratory for Energy, USA",
+                img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+                talkTitle: "Generative AI Architectures for Predicting Room-Temperature Superconductors",
+                bio: "Dr. Vance is an authority at the intersection of machine learning and physical sciences. He developed the CrystalDiff-Net AI model which rapidly predicts structural stability in novel crystalline phases.",
+                interests: ["Artificial Intelligence", "Computational Physics", "Superconductors"],
+                session: "Technical Track A • Day 1, 02:00 PM"
+            },
+            speaker5: {
+                name: "Prof. Aisha Patel",
+                role: "Nanoplasmonics & Catalyst Chair",
+                inst: "Imperial College London, UK",
+                img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600",
+                talkTitle: "Solar-Driven Green Hydrogen Catalysis via Plasmonic MOFs",
+                bio: "Prof. Patel is a recipient of the Royal Society Innovation Award. Her research harnesses light-matter interactions at nanoscale surfaces to achieve high-efficiency solar fuel synthesis.",
+                interests: ["Nanoplasmonics", "Green Hydrogen", "Photocatalysis"],
+                session: "Keynote Session • Day 3, 10:00 AM"
+            },
+            speaker6: {
+                name: "Dr. Carlos Mendez",
+                role: "Director of 2D Quantum Materials",
+                inst: "ICFO Barcelona, Spain",
+                img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
+                talkTitle: "Topological Insulators & Moiré Superlattices in Twisted Graphene",
+                bio: "Dr. Mendez investigates electron correlation in magic-angle 2D heterostructures. His work provides vital foundational insights for low-dissipation quantum computing devices.",
+                interests: ["2D Materials", "Graphene", "Topological Insulators"],
+                session: "Technical Track C • Day 3, 01:30 PM"
+            }
+        };
+
+        // Schedule Data Store
+        const scheduleData = {
+            day1: [
+                { time: "08:30 AM - 09:30 AM", title: "Delegate Registration & Welcome Coffee", room: "Main Atrium", type: "General" },
+                { time: "09:30 AM - 10:00 AM", title: "Opening Ceremony & Inaugural Address", room: "Auditorium A", type: "Ceremony" },
+                { time: "10:00 AM - 11:30 AM", title: "Keynote Lecture: Scaling Quantum Photonic Waveguides", speaker: "Prof. Aris Thorne", room: "Auditorium A", type: "Keynote" },
+                { time: "11:30 AM - 01:00 PM", title: "Technical Track A: AI Driven Computational Chemistry", room: "Hall B1", type: "Technical" },
+                { time: "01:00 PM - 02:00 PM", title: "Networking Lunch & Poster Viewing", room: "Exhibition Hall", type: "Break" },
+                { time: "02:00 PM - 04:30 PM", title: "Session: Nanoplasmonics & Quantum Light Sources", room: "Hall C2", type: "Technical" }
+            ],
+            day2: [
+                { time: "09:00 AM - 10:30 AM", title: "Keynote: Solid-State Batteries dendrite Breakthroughs", speaker: "Prof. Kenji Tanaka", room: "Auditorium A", type: "Keynote" },
+                { time: "10:30 AM - 12:30 PM", title: "Track B: Smart Biomaterials & Neural Devices", speaker: "Dr. Elena Rostova", room: "Hall B2", type: "Technical" },
+                { time: "12:30 PM - 01:30 PM", title: "Lunches & Industry Sponsor Workshops", room: "Exhibition Hall", type: "Break" },
+                { time: "01:30 PM - 04:00 PM", title: "Oral Presentation Sessions (Tracks 1 - 4)", room: "Halls A-D", type: "Technical" },
+                { time: "07:00 PM - 10:00 PM", title: "Official Conference Gala Dinner & Awards Ceremony", room: "Grand Ballroom", type: "Social" }
+            ],
+            day3: [
+                { time: "09:30 AM - 11:00 AM", title: "Keynote: Solar Green Hydrogen Catalysis via MOFs", speaker: "Prof. Aisha Patel", room: "Auditorium A", type: "Keynote" },
+                { time: "11:00 AM - 01:00 PM", title: "Track C: 2D Quantum Materials & Moiré Superlattices", speaker: "Dr. Carlos Mendez", room: "Hall C1", type: "Technical" },
+                { time: "01:00 PM - 02:00 PM", title: "Lunch & Valedictory Session", room: "Auditorium A", type: "Ceremony" }
+            ]
+        };
+
+        // Modal Functionality
+        function openSpeakerModal(speakerKey) {
+            const speaker = speakersData[speakerKey];
+            if (!speaker) return;
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="flex flex-col sm:flex-row gap-6 items-start">
+                    <img src="${speaker.img}" alt="${speaker.name}" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover shadow-md flex-shrink-0">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md mb-2 inline-block">${speaker.session}</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900">${speaker.name}</h3>
+                        <p class="text-slate-700 font-semibold text-sm">${speaker.role}</p>
+                        <p class="text-slate-500 text-xs mt-1">${speaker.inst}</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-slate-100">
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Keynote Talk Title</h4>
+                    <p class="text-base font-bold text-slate-900 mb-4">"${speaker.talkTitle}"</p>
+
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Biography</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">${speaker.bio}</p>
+
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Research Focus</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${speaker.interests.map(item => `<span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1 rounded-full border border-slate-200">${item}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            const overlay = document.getElementById('modalOverlay');
+            const content = document.getElementById('modalContent');
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeSpeakerModal() {
+            const overlay = document.getElementById('modalOverlay');
+            const content = document.getElementById('modalContent');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 200);
+        }
+
+        // Close Modal on clicking outside
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeSpeakerModal();
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Countdown Timer Logic
+        function startCountdown() {
+            const targetDate = new Date('October 14, 2027 09:00:00').getTime();
+
+            function update() {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+
+                if (difference > 0) {
+                    const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                    const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+                    document.getElementById('days').innerText = String(d).padStart(2, '0');
+                    document.getElementById('hours').innerText = String(h).padStart(2, '0');
+                    document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+                    document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+                }
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+
+        // Schedule Tab Switcher
+        function switchTab(dayKey) {
+            ['day1', 'day2', 'day3'].forEach(key => {
+                const btn = document.getElementById(`tab-${key}`);
+                if (key === dayKey) {
+                    btn.className = "px-6 py-3 rounded-xl font-extrabold text-sm transition bg-brand-600 text-white shadow-md";
+                } else {
+                    btn.className = "px-6 py-3 rounded-xl font-extrabold text-sm transition text-slate-600 hover:text-slate-900";
+                }
+            });
+
+            const container = document.getElementById('scheduleContent');
+            const items = scheduleData[dayKey] || [];
+
+            container.innerHTML = items.map(item => `
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:shadow-md transition">
+                    <div>
+                        <div class="flex items-center gap-3 mb-1">
+                            <span class="text-xs font-bold text-brand-600 bg-brand-50 px-2.5 py-0.5 rounded-md">${item.time}</span>
+                            <span class="text-xs font-semibold text-slate-400"><i class="fa-solid fa-door-open text-slate-300 mr-1"></i>${item.room}</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900">${item.title}</h4>
+                        ${item.speaker ? `<p class="text-xs font-semibold text-slate-500 mt-1"><i class="fa-solid fa-user-pen mr-1 text-slate-400"></i>${item.speaker}</p>` : ''}
+                    </div>
+                    <span class="text-xs font-bold uppercase px-3 py-1 rounded-full ${item.type === 'Keynote' ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 text-slate-600'}">${item.type}</span>
+                </div>
+            `).join('');
+        }
+
+        // Dropzone & File Handling Mockup
+        function triggerFileSelect() {
+            document.getElementById('fileInput').click();
+        }
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                document.getElementById('fileLabel').innerText = `Selected File: ${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)`;
+            }
+        }
+
+        function handleAbstractSubmit(e) {
+            e.preventDefault();
+            alert("Thank you! Your abstract submission has been received. A confirmation receipt has been dispatched to your email address.");
+            document.getElementById('abstractForm').reset();
+            document.getElementById('fileLabel').innerText = "Click to upload or drag & drop file here";
+        }
+
+        function downloadTemplateMock() {
+            alert("Downloading ICAMSI-2027 Official Abstract Word Template (.docx)...");
+        }
+
+        function mockRegister(tier, price) {
+            alert(`Opening checkout portal for ${tier} pass (${price})...`);
+        }
+
+        // Initialize Page Interactions
+        window.onload = function() {
+            startCountdown();
+            switchTab('day1');
+        };
+    </script>
+</body>
+</html>
